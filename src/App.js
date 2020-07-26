@@ -9,12 +9,44 @@ class App extends Component{
   state = {
     termino: "",
     imagenes : [],
-    color: "red"
+    pagina:""
+  }
+
+  scroll = () => {
+    const elemento = document.querySelector(".jumbotron");
+    elemento.scrollIntoView("smooth","start");
+  }
+
+  paginaAnterior = () => {
+    let pagina = this.state.pagina;
+
+    if(pagina===1) return null;
+
+    pagina -=1;
+    this.setState({
+      pagina
+    }, () => {
+      this.consultarApi();
+      this.scroll();
+    });
+  }
+
+  paginaSiguiente = () => {
+    
+    let pagina = this.state.pagina;
+    pagina +=1;
+    this.setState({
+      pagina
+    }, () => {
+      this.consultarApi();
+      this.scroll();
+    });
   }
 
   consultarApi = () => {
     const termino = this.state.termino;
-    const url = `https://pixabay.com/api/?key=15689473-9f661a18592fed1b7e8c3bcb3&q=${termino}&per_page=30`;
+    const pagina = this.state.pagina;
+    const url = `https://pixabay.com/api/?key=15689473-9f661a18592fed1b7e8c3bcb3&q=${termino}&per_page=32&page=${pagina}`;
 
     fetch(url)
     .then(respuesta => respuesta.json())
@@ -23,7 +55,8 @@ class App extends Component{
 
   datosBusqueda = (termino) => {
     this.setState({
-      termino
+      termino: termino,
+      pagina:1
     },() => {
       this.consultarApi();
     })
@@ -35,7 +68,12 @@ class App extends Component{
         <div className="jumbotron text-dark">
           <h3 className="bold text-center text-dark mb-4 textoB">Buscador de Imágenes</h3>
           <Buscador datosBusqueda={this.datosBusqueda}/>
-          <Resultado imagenes={this.state.imagenes}/>
+        </div>
+        <div className="row justify-content-center">
+          <Resultado 
+          paginaAnterior={this.paginaAnterior}
+          paginaSiguiente={this.paginaSiguiente}
+          imagenes={this.state.imagenes}/>
         </div>
       </div>
     );
