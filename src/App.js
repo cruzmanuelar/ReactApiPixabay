@@ -1,26 +1,21 @@
-import React from 'react';
+import React, { Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+//import "bootswatch/dist/litera/bootstrap.min.css";
+import Buscador from "./componentes/Buscador"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <div className="container-fluid text-light">
+        <div className="jumbotron">
+          <h3 className="bold text-center text-dark mb-4">Buscador de Imágenes</h3>
+          <Buscador/>
+        </div>
+      </div>
+    );
+  }
 }
+  
 
 export default App;
