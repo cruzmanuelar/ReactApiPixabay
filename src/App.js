@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import './App.css';
-//import "bootswatch/dist/litera/bootstrap.min.css";
 import Buscador from "./componentes/Buscador"
 import Resultado from "./componentes/Resultado"
 
@@ -65,8 +64,8 @@ class App extends Component{
   render(){
     return (
       <div className="container-fluid text-light">
-        <div className="jumbotron text-dark">
-          <h3 className="bold text-center text-dark mb-4 textoB">Imágen de Pixabay</h3>
+        <div className="jumbotron bg-primary">
+          <h3 className="text-center text-light mb-4 textoB">Imágenes de Pixabay</h3>
           <Buscador datosBusqueda={this.datosBusqueda}/>
         </div>
         <div className="row justify-content-center">
@@ -79,7 +78,5 @@ class App extends Component{
     );
   }
 }
-
-
 
 export default App;

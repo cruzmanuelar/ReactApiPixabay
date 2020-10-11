@@ -4,8 +4,8 @@ class Buscador extends Component {
 
     busquedaRef = React.createRef();
     obtenerDatos = (e) => {
+        
         e.preventDefault();
-
         const termino = this.busquedaRef.current.value;
         this.props.datosBusqueda(termino);
     }

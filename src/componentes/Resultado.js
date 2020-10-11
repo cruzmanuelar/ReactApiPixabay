@@ -8,11 +8,10 @@ class Resultado extends Component {
         const imagenes = this.props.imagenes;
 
         if(imagenes.length === 0) return null;
-        console.log(imagenes);
-
+        
         return(
             <React.Fragment>
-                <div className="col-12 p-5 row">
+                <div className="col-12 py-2 px-3 row">
                     {imagenes.map(imagen => (
                         <Imagen 
                         key={imagen.id}
