@@ -66,7 +66,7 @@ class App extends Component{
     return (
       <div className="container-fluid text-light">
         <div className="jumbotron text-dark">
-          <h3 className="bold text-center text-dark mb-4 textoB">Imágenes de Pixabay</h3>
+          <h3 className="bold text-center text-dark mb-4 textoB">Imágen de Pixabay</h3>
           <Buscador datosBusqueda={this.datosBusqueda}/>
         </div>
         <div className="row justify-content-center">

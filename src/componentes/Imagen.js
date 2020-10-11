@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 
 
@@ -8,7 +9,7 @@ const Imagen = (props) => {
     return(
         <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
             <div className="card">
-                <img src={previewURL} alt={tags} className="card-img-top"></img>
+                <img src={previewURL} target="_blank" alt={tags} className="card-img-top"></img>
                 <div className="card-body text-center text-dark">
                     <p className="card-text textoB">{likes} Me gusta</p>
                     <p className="card-text textoB">{views} Vistas</p>
