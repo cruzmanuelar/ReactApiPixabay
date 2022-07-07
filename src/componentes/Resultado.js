@@ -9,6 +9,13 @@ class Resultado extends Component {
     mostrarImagenes = () => {
         const imagenes = this.props.imagenes;
 
+        let existeSiguiente = true;
+        if(imagenes.length < 32){
+            existeSiguiente = false;
+        }else{
+            existeSiguiente = true;
+        }
+
         if(imagenes.length === 0) return <div className='contenedorNotFound'>
             <h3>No hay resultados</h3>
             <img className='imagenNotFound' alt='sin resultados' src={notFound}/>
@@ -27,6 +34,8 @@ class Resultado extends Component {
                     paginaAnterior={this.props.paginaAnterior}
                     paginaSiguiente={this.props.paginaSiguiente}
                     paginaActual={this.props.paginaActual}
+                    existeSiguientePagina={existeSiguiente}
+
                 />
             </React.Fragment>
         )
