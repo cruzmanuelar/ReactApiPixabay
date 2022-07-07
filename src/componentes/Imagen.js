@@ -28,7 +28,7 @@ const Imagen = (props) => {
 
                     </div>
 
-                    <a href={largeImageURL} target="_blank" className="btn textoB btn-color btn-block rounded-0">Ampliar</a>
+                    <a href={largeImageURL} target="_blank" className="btn textoB btn-color btn-block rounded-0"><i class="fa-solid fa-magnifying-glass-plus"></i>Ampliar</a>
                 </div>
             </div>
         </div>

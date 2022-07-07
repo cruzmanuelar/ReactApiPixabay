@@ -20,6 +20,8 @@ class App extends Component{
 
   componentDidMount() {
     window.addEventListener("scroll", this.scrollFn);
+
+    this.consultarApi();
   }
 
   handleScroll(){
