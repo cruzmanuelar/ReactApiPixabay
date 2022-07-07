@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class Buscador extends Component {
 
@@ -13,12 +14,12 @@ class Buscador extends Component {
     render() { 
         return (
             <form onSubmit={this.obtenerDatos}>
-                <div className="row text-dark">
-                    <div className="form-group col-md-8">
-                        <input ref={this.busquedaRef} type="text" className="form-control textoB form-control-lg" placeholder="Palabra clave"/>
+                <div className="text-dark formulario">
+                    <div className="col-md-8">
+                        <input ref={this.busquedaRef} type="text" className="textoB form-control" placeholder="Palabra clave"/>
                     </div>
-                    <div className="form-group col-md-4">
-                        <input type="submit" className="btn btn-success btn-lg btn-block rounded-0" value="Buscar"/>
+                    <div className="col-md-4 my-2">
+                        <input type="submit" className="btn btn-color btn-lg btn-block rounded" value="Buscar"/>
                     </div>
                 </div>
             </form>

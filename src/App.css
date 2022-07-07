@@ -1,6 +1,86 @@
+*{
+  margin: 0;
+}
+
+.contenedor{
+  min-width: 300px;
+}
+
 .App {
   text-align: center;
 }
 .textoB{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.nav{
+  background-color: rgba(0, 0, 0, 0.922);
+  min-width: 500px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.formulario{
+
+  display: flex;
+  align-items: center;
+}
+
+.box-flexbox{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.fa-heart{
+  color: red;
+}
+
+.btn-color{
+  color: white !important;
+  background-color: #04293A !important;
+}
+
+.btn-color:hover{
+  background-color: #0b5b80b5 !important;
+}
+
+.card-body{
+  background-color: rgba(0, 0, 0, 0.922);
+}
+
+.botonVolverArriba{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  background-color: #04293A;
+  border: 2px solid white;
+}
+
+@media (min-width: 500px){
+  
+  .nav{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 500px){
+  
+  .nav{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box-flexbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2px;
+  }
 }

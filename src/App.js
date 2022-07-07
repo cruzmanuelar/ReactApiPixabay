@@ -5,15 +5,41 @@ import Resultado from "./componentes/Resultado"
 
 class App extends Component{
 
-  state = {
-    termino: "",
-    imagenes : [],
-    pagina:""
+  constructor(){
+    super();
+
+    this.state = {
+      termino: "",
+      imagenes : [],
+      pagina:"",
+      botonVolverArriba: false
+    }
+
+    this.scrollFn = this.handleScroll.bind(this);
   }
 
-  scroll = () => {
-    const elemento = document.querySelector(".jumbotron");
-    elemento.scrollIntoView("smooth","start");
+  componentDidMount() {
+    window.addEventListener("scroll", this.scrollFn);
+  }
+
+  handleScroll(){
+    if(window.pageYOffset > 400){
+      this.setState({ botonVolverArriba:true});
+    }else{
+      this.setState({ botonVolverArriba: false});
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollFn)
+  }
+  
+
+  scrollUp = () => {
+    window.scrollTo({
+        top:0,
+        behavior: "smooth"
+    })
   }
 
   paginaAnterior = () => {
@@ -26,7 +52,7 @@ class App extends Component{
       pagina
     }, () => {
       this.consultarApi();
-      this.scroll();
+      this.scrollUp();
     });
   }
 
@@ -38,7 +64,7 @@ class App extends Component{
       pagina
     }, () => {
       this.consultarApi();
-      this.scroll();
+      this.scrollUp();
     });
   }
 
@@ -63,17 +89,31 @@ class App extends Component{
 
   render(){
     return (
-      <div className="container-fluid text-light">
-        <div className="jumbotron bg-primary">
-          <h3 className="text-center text-light mb-4 textoB">Imágenes de Pixabay</h3>
+      <div className="text-light contenedor">
+
+        <nav className="nav">
+
+          <div className="navbar-brand">Imágenes de Pixabay</div>
+            
           <Buscador datosBusqueda={this.datosBusqueda}/>
-        </div>
+
+        </nav>
+
         <div className="row justify-content-center">
           <Resultado 
           paginaAnterior={this.paginaAnterior}
           paginaSiguiente={this.paginaSiguiente}
+          paginaActual={this.state.pagina}
           imagenes={this.state.imagenes}/>
         </div>
+
+        {this.state.botonVolverArriba === true && <button className='botonVolverArriba'
+            onClick={this.scrollUp}
+            ><li className="fas fa-arrow-up">
+            </li>
+            </button>
+        }
+        
       </div>
     );
   }

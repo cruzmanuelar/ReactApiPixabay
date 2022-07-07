@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Imagen from "./Imagen";
 import Paginacion from './Paginacion';
+import '../App.css';
 
 class Resultado extends Component {
 
@@ -11,7 +12,7 @@ class Resultado extends Component {
         
         return(
             <React.Fragment>
-                <div className="col-12 py-2 px-3 row">
+                <div className="col-12 py-3 row bg-resultados">
                     {imagenes.map(imagen => (
                         <Imagen 
                         key={imagen.id}
@@ -21,6 +22,7 @@ class Resultado extends Component {
                 <Paginacion
                     paginaAnterior={this.props.paginaAnterior}
                     paginaSiguiente={this.props.paginaSiguiente}
+                    paginaActual={this.props.paginaActual}
                 />
             </React.Fragment>
         )
