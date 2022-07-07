@@ -76,6 +76,7 @@ class App extends Component{
     fetch(url)
     .then(respuesta => respuesta.json())
     .then(resultado => this.setState({imagenes: resultado.hits}))
+
   }
 
   datosBusqueda = (termino) => {
